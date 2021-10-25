@@ -6,6 +6,9 @@
 cd PyMesh 
 python setup.py install
 
+cd deep_cages/pytorch_points/
+python setup.py install
+
 ```
 ## Installation
 ```bash
@@ -68,7 +71,7 @@ python optimize_cage.py --ckpt trained_models/rpose_mlp/net_final.pth --nepochs 
 A binary file storing preprocessed training data is provided `data/train_Chair_-1_2500.pkl`. This consists of the chair models from the  PartSegv0 subset of ShapeNetCore.v1 dataset.
 The following command is what we ran to create our results in the paper.
 ```python
-python cage_deformer.py --data_cat Chair --dataset SHAPENET --data_dir {ROOT_POINT_DIR} \
+python cage_deformer_3d.py --data_cat Chair --dataset SHAPENET --data_dir /kunal-data2/deep_cage/data \
   --batch_size 8 --nepochs 12 --num_point 1024 --bottleneck_size 256 --n_fold 2 --loss CD \
   --name shapenet_chairs --mvc_weight 0.1 --sym_weight 0.5 --p2f_weight 0.1 --snormal_weight 0.1 --full_net
 ```
