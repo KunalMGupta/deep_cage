@@ -3,7 +3,10 @@
 
 ## Installation with Docker
 ```
-cd PyMesh 
+git clone https://github.com/PyMesh/PyMesh.git
+cd PyMesh
+git submodule update --init
+
 python setup.py install
 
 cd deep_cages/pytorch_points/
