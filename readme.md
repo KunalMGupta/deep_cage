@@ -1,5 +1,12 @@
 # Neural Cages for Detail-Preserving 3D Deformations
 [[project page][project-page]][[pdf][pdf]][[supplemental][supp-pdf]]
+
+## Installation with Docker
+```
+cd PyMesh 
+python setup.py install
+
+```
 ## Installation
 ```bash
 git clone --recursive https://github.com/yifita/deep_cage.git
