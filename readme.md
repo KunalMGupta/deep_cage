@@ -2,12 +2,42 @@
 [[project page][project-page]][[pdf][pdf]][[supplemental][supp-pdf]]
 
 ## Installation with Docker
+Firstly, install the latest version of cmake
+```
+# Source https://graspingtech.com/upgrade-cmake/
+
+apt install build-essential libssl-dev
+wget https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz
+tar -zxvf cmake-3.20.2.tar.gz
+cd cmake-3.20.2
+./bootstrap
+make
+sudo make install 
+```
+Then, we are all set to install pymesh.
 ```
 git clone https://github.com/PyMesh/PyMesh.git
 cd PyMesh
 git submodule update --init
+export PYMESH_PATH=`pwd`
 
-python setup.py install
+apt-get install \
+    libeigen3-dev \
+    libgmp-dev \
+    libgmpxx4ldbl \
+    libmpfr-dev \
+    libboost-dev \
+    libboost-thread-dev \
+    libtbb-dev \
+    python3-dev
+
+pip install -r $PYMESH_PATH/python/requirements.txt
+
+./setup.py build
+./setup.py install
+
+python -c "import pymesh; pymesh.test()"
+
 
 cd deep_cages/pytorch_points/
 python setup.py install
